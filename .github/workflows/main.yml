@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  test-and-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,3 +27,6 @@ jobs:
 
       - name: Run automated tests
         run: python -m pytest -v
+
+      - name: Build Docker image
+        run: docker build -t agentic-support:ci .
